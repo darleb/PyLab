@@ -1,0 +1,6 @@
+cartoons = [['Simba','king', 1994],
+            ['Rapunzel','princess', 2010],
+            ['Cinderella','princess',1950],
+            ['Mickey Mouse',' ', 1928],
+            ['Aladdin','homeless',1992]]
+            
