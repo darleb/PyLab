@@ -3,7 +3,7 @@ cartoons = [['The Lion King', 'Simba', 1994],
             ['Cinderella','Cinderella',1950],
             ['Mickey Mouse','Mickey Mouse', 1928],
             ['Aladdin','Aladdin',1992],
-            ['Alice In Wonderland','Alice','1951']]
+            ['Alice In Wonderland','Alice',1951]]
             
 max = 0
 for x in cartoons:
