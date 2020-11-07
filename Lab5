@@ -1,0 +1,16 @@
+group = dict(Ivan='1995',
+                   Maria='1990',
+                   Gleb='1994',
+                   Elena='1993',
+                   Kirill='1995')
+
+sear = input()
+
+def search(d, s):
+    result = {}
+    for i in d:
+        if s in i:
+            result[i] = d[i]
+    return result
+
+print(search(group, sear))
