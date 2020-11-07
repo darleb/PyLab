@@ -1,0 +1,12 @@
+group_brthd = dict( Ivan = '1995',
+                     Maria = '1990',
+                     Gleb = '1994',
+                     Elena = '1993',
+                     Kirill = '1995')
+
+min = 10000
+for key in group_brthd:
+     if int(group_brthd[key]) < min:
+         min = int(group_brthd[key])
+         n = key
+print("Oldest", n + " born in " + str(min))
