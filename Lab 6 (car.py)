@@ -1,0 +1,43 @@
+import datetime
+
+now = datetime.datetime.now()
+
+
+class Car:
+
+    count = 0
+    m = 0
+
+    def __init__(self, brand, model, number, year, mileage):
+        self.brand, self.model, self.license_plate, self.year, self.mileage = brand, model, number, year, mileage
+        self.key = number
+        Car.count += 1
+
+    def mean_mile(self):
+        y = now.year - self.year
+        print('Средний пробег в год для', self.brand, 'с номером', self.license_plate, ' - ', int(self.mileage / y))
+
+    def mean_year(self):
+        Car.m += self.year
+
+    def print_mileage(self, until):
+        for ij in self:
+            if ij.mileage <= until:
+                print(ij.brand + ' ' + ' ' + ij.model, 'mile', ij.mileage)
+
+
+class ElectricСar(Car):
+
+    def __init__(self, brand, model, number, year, mileage, battery):
+        super().__init__(brand, model, number, year, mileage)
+        self.battery = battery
+
+    def battery_capacity(self):
+        if self.model == 'S':
+            self.battery = 85
+            print(self.brand + ' ' + self.model, 'емкость батареи - ', self.battery)
+        elif self.model == 'X':
+            self.battery = 75
+            print(self.brand + ' ' + self.model, 'емкость батареи - ', self.battery)
+        else:
+            print(self.brand + ' ' + self.model, 'емкость батареи неизвестна, вероятно машина не электрическая')
