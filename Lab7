@@ -1,0 +1,38 @@
+import datetime
+
+now = datetime.datetime.now()
+
+class Car():
+
+    count = 0
+    m = 0
+    def __init__(self, brand, model, license_plate, year,  mileage):
+        self.brand, self.model, self.license_plate, self.year, self.mileage = brand, model, license_plate, year, mileage
+        self.key = (license_plate)
+        Car.count += 1
+
+    def __repr__(self):
+        return "Person('%s','%s','%s', '%s', '%s')" % (self.brand, self.model, self.license_plate, self.year, self.mileage)
+
+    def mean_mile(self):
+       y = now.year - self.year
+       print('Average mileage per year for', self.brand, 'with license plate', self.license_plate, 'is', int(self.mileage/y))
+
+    def mean_year(self):
+        Car.m += self.year
+
+tesla_1 = Car('Tesla', 'S', 111111, 2013, 120123)
+bmw_1 = Car('BMW', 'X5', 111222, 2018, 36873)
+bmw_2 = Car('BMW', 'X1', 111666, 2009, 200056)
+kia_1 = Car('Kia', 'Optima', 111333, 2015, 60005)
+kia_2 = Car('Kia', 'Optima', 111444, 2017, 23456)
+mercedes_1 = Car('Mercedes', 'C180', 111555, 2007, 360873)
+mercedes_2 = Car('Mercedes', 'C200', 111777, 2011, 160873)
+
+Car.mean_mile(tesla_1)
+Car.mean_mile(kia_2)
+
+cars = (tesla_1, bmw_1, bmw_2, kia_1, kia_2, mercedes_1, mercedes_2)
+for i in cars:
+    Car.mean_year(i)
+print('Average production year', int(Car.m/Car.count))
