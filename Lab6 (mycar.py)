@@ -1,0 +1,37 @@
+from car import Car, ElectricСar
+
+bmw_1 = Car('BMW', 'X5', 3, 2018, 36873)
+bmw_2 = Car('BMW', 'X1', 6, 2009, 200056)
+kia_1 = Car('Kia', 'Optima', 3, 2015, 60005)
+kia_2 = Car('Kia', 'Optima', 4, 2017, 23456)
+mercedes_1 = Car('Mercedes', 'C180', 5, 2007, 360873)
+mercedes_2 = Car('Mercedes', 'C200', 7, 2011, 160873)
+tesla_1 = ElectricСar('Tesla', 'S', 1, 2013, 120123, 85)
+tesla_2 = ElectricСar('Tesla', 'X', 8, 2020, 0, 75)
+
+
+Car.mean_mile(bmw_1)
+Car.mean_mile(kia_2)
+
+
+print()
+cars = (bmw_1, bmw_2, kia_1, kia_2, mercedes_1, mercedes_2, tesla_1, tesla_2)
+for i in cars:
+    Car.mean_year(i)
+print('Средний год производства машин из наличия -', int(Car.m / Car.count))
+
+
+print()
+while True:
+    try:
+        Car.until = int(input("Введите до какого количества км пробега Вы рассматриваете машины: "))
+    except:
+        print("Вы ввели не целое число, ошибка")
+        continue
+    break
+Car.print_mileage(cars, Car.until)
+
+
+print()
+ElectricСar.battery_capacity(tesla_1)
+ElectricСar.battery_capacity(mercedes_2)
