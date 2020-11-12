@@ -20,6 +20,11 @@ class Car():
 
     def mean_year(self):
         Car.m += self.year
+   
+    def print_mileage(self, until):
+        for i in self:
+            if i.mileage <= until:
+                print(i.brand + ' ' + ' ' + i.model,'mile', i.mileage)
 
 tesla_1 = Car('Tesla', 'S', 111111, 2013, 120123)
 bmw_1 = Car('BMW', 'X5', 111222, 2018, 36873)
@@ -32,7 +37,19 @@ mercedes_2 = Car('Mercedes', 'C200', 111777, 2011, 160873)
 Car.mean_mile(tesla_1)
 Car.mean_mile(kia_2)
 
+print()
 cars = (tesla_1, bmw_1, bmw_2, kia_1, kia_2, mercedes_1, mercedes_2)
 for i in cars:
     Car.mean_year(i)
 print('Average production year', int(Car.m/Car.count))
+
+print()
+while True:
+    try:
+        until = int(input("Введите до какого количества км пробега Вы рассматриваете машины: "))
+    except:
+        print("Вы ввели не целое число, ошибка")
+        continue
+    break
+
+Car.print_mileage(cars, until)
