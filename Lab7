@@ -1,0 +1,42 @@
+import random
+
+ques = dict()
+flag = 1
+
+while flag:
+    try:
+        question = str(input('Введите Ваш вопрос:'))
+    except:
+        print("Вы не ввели вопрос, ошибка")
+        continue
+
+    if question == "хватит" or question == "выход":
+        break
+
+    x = random.randint(0, 1)
+    match = 0
+    for i in ques.keys():
+        if question == i:
+            match += 1
+
+    if match != 0:
+        print((ques.get(i)))
+        continue
+    else:
+        if x == 0:
+           print('Нет')
+        else:
+            print('Да')
+
+    ques.setdefault(question)
+
+    if x == 0:
+        ques.update({question: 'Нет'})
+    else:
+        ques.update({question: 'Да'})
+
+    print(ques)
+
+    if len(ques) > 10:
+        ques.clear()
+
