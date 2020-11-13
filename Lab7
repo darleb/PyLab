@@ -37,6 +37,6 @@ while flag:
 
     print(ques)
 
-    if len(ques) > 10:
+    if len(ques) > 50:
         ques.clear()
 
