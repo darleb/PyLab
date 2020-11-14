@@ -1,0 +1,22 @@
+schet = 1
+proizv = 1
+maxchislo = 1
+while True:
+    try:
+        schet = int(input('Введите с какого целого числа производить проверку и умножение:'))
+        maxchislo = int(input('Введите до какого целого числа производить проверку и умножение:'))
+    except:
+        print('Вы ввели не целое число')
+        continue
+    break
+
+while schet < maxchislo:
+    if schet%3 == 0 and schet%5 == 0:
+        print('Число', schet, 'делится на 3 и на 5')
+        proizv *= schet
+    schet += 1
+
+if proizv == 1:
+    print('Произведение равно 0, чисел кратных 3 и 5 в указанном промежутке нет')
+else:
+    print('Произведение равно', proizv)
