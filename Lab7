@@ -17,10 +17,10 @@ while flag:
     match = 0
     for i in ques.keys():
         if question == i:
-            match += 1
+            print((ques.get(i)))
+            match = 1
 
     if match != 0:
-        print((ques.get(i)))
         continue
     else:
         if x == 0:
