@@ -1,0 +1,38 @@
+import datetime
+
+now = datetime.date.today()
+
+
+class Post:
+
+    def __init__(self, index, status, date_of_delivery, address, weight):
+        self.index, self.weight = index, weight
+        self.date_of_delivery, self.status = date_of_delivery, status
+        self.address = address
+
+    def __repr__(self):
+       return "Post('%s',%s,'%s','%s',%s)" % (self.index, self.status, self.date_of_delivery, self.address, self.weight)
+
+    parcels = []
+    ind = 4
+
+    def new_parcel(self):
+        parcel = [Post.ind, 0, now + datetime.timedelta(days=5), input('Введите адрес доставки:'), input('Введите вес посылки:')]
+        Post.parcels.append(parcel)
+        print('Ваша посылка', Post.ind, 'отправлена! Дата доставки:', now + datetime.timedelta(days=5))
+        Post.ind += 1
+        print(Post.parcels)
+
+    def issued(self, index):
+        if index != self.index:
+            print('Вы ввели неверный номер посылки, попробуйте еще раз')
+            exit()
+        else:
+            if now.date() >= self.date_of_delivery and self.status != 1:
+                self.status = 1  # посылку забрали
+                print('Получите посылку', self.index, 'на стойке выдачи')
+
+if __name__ == '__main__':
+    parcel_1 = Post(1, 0, datetime(2020, 11, 16), 'Ленина', 2.6)
+    parcel_2 = Post(2, 0, datetime(2020, 11, 15), 'Луначарского', 1.1)
+    parcel_3 = Post(3, 0, datetime(2020, 11, 17), 'Пушкина', 0.5)
